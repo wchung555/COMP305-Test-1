@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿// COMP305-Test-1 completed by Winnie Chung (300833637)
+
+using UnityEngine;
 using System.Collections;
 
+// controls the interaction of the player game object with the enemy game objects
 public class PlayerCollider : MonoBehaviour {
 
     private GameController _controller;
@@ -15,6 +18,7 @@ public class PlayerCollider : MonoBehaviour {
 	
 	}
 
+    // destory the enemy game object and decrement the hull points
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("enemy"))

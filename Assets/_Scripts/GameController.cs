@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿// COMP305-Test-1 completed by Winnie Chung (300833637)
+
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+// controls the game state and the generation of enemies
 public class GameController : MonoBehaviour
 {
     // private instance variables
@@ -27,6 +30,7 @@ public class GameController : MonoBehaviour
         this._txtHighScore = GameObject.Find("High Score");
         this._btnRestart = GameObject.Find("Restart Button");
 
+        // hide UI objects used for the game over state
         this._txtGameOver.SetActive(false);
         this._txtHighScore.SetActive(false);
         this._btnRestart.SetActive(false);
@@ -37,6 +41,7 @@ public class GameController : MonoBehaviour
     {
         if (this._lives >= 0)
         {
+            // update score and lives
             this._GenerateEnemies();
             this._txtScore.GetComponent<Text>().text = "Score: " + this._score;
             this._txtLives.GetComponent<Text>().text = "Hull Points: " + this._lives;
@@ -44,6 +49,7 @@ public class GameController : MonoBehaviour
 
         else
         {
+            // game over state
             this._player.SetActive(false);
 
             this._txtGameOver.SetActive(true);
@@ -59,7 +65,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    // generate Clouds
+    // generate enemies
     private void _GenerateEnemies()
     {
         while (this._currentEnemyCount < this.enemyCount)
@@ -69,20 +75,24 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // decrease the hull points and number of enemies on screen
     public void DamageHull()
     {
         this._lives--;
         this._currentEnemyCount--;
     }
 
+    // increase the score (when the game is not over)
     public void AvoidFighter()
     {
         if (this._lives > 0)
             this._score += 10;
     }
 
+    // click handler for the restart button
     public void BtnRestart_onClick()
     {
+        // refresh scene
         this._score = 0;
         this._lives = 5;
 

@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿// COMP305-Test-1 completed by Winnie Chung (300833637)
+
+using UnityEngine;
 using System.Collections;
 
+// controls the movement of the player game object
 public class PlayerController : MonoBehaviour {
 	// PUBLIC INSTANCE VARIABLES +++++++++++++++++++++++++++++++++++++++
 	//public float speed;

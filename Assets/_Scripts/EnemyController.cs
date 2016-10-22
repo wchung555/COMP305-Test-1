@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// COMP305-Test-1 completed by Winnie Chung (300833637)
+
+using UnityEngine;
 using System.Collections;
 
 [System.Serializable]
@@ -12,6 +14,7 @@ public class Boundary {
 }
 
 
+// controls the movement of the enemy game object
 public class EnemyController : MonoBehaviour {
 	// PUBLIC INSTANCE VARIABLES
 	public Speed speed;
